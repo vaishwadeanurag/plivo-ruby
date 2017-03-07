@@ -236,6 +236,21 @@ module Plivo
             return request('GET', "/Call/", params)
         end
 
+        def get_ringing_calls(params={})
+            params["status"] = "ringing"
+            return request('GET', "/Call/", params)
+        end
+
+        def get_in_progress_calls(params={})
+            params["status"] = "in-progress"
+            return request('GET', "/Call/", params)
+        end
+
+        def get_queued_calls(params={})
+            params["status"] = "queued"
+            return request('GET', "/Call/", params)
+        end
+
         def get_live_call(params={})
             call_uuid = params.delete('call_uuid')
             params["status"] = "live"
